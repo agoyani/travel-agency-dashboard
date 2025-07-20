@@ -1,4 +1,4 @@
-import type {AxisModel} from "@syncfusion/ej2-react-charts";
+import type { AxisModel } from "@syncfusion/ej2-react-charts";
 import {formatDate} from "~/lib/utils";
 
 export const sidebarItems = [
@@ -102,7 +102,7 @@ export const comboBoxItems = {
     budget: budgetOptions,
 } as Record<keyof TripFormData, string[]>;
 
-export const userXAxis: AxisModel = {valueType: "Category", title: "Day"};
+export const userXAxis: AxisModel = { valueType: "Category", title: "Day" };
 export const useryAxis: AxisModel = {
     minimum: 0,
     maximum: 10,
@@ -113,7 +113,7 @@ export const useryAxis: AxisModel = {
 export const tripXAxis: AxisModel = {
     valueType: "Category",
     title: "Travel Styles",
-    majorGridLines: {width: 0},
+    majorGridLines: { width: 0 },
 };
 
 export const tripyAxis: AxisModel = {
@@ -133,64 +133,60 @@ export const CONFETTI_SETTINGS = {
 export const LEFT_CONFETTI = {
     ...CONFETTI_SETTINGS,
     angle: 45, // Direction of the confetti burst (90 degrees is top)
-    origin: {x: 0, y: 1}, // Center of the screen
+    origin: { x: 0, y: 1 }, // Center of the screen
 };
 
 export const RIGHT_CONFETTI = {
     ...CONFETTI_SETTINGS,
     angle: 135,
-    origin: {x: 1, y: 1},
+    origin: { x: 1, y: 1 },
 };
 
-export const user = {name: 'Ansh'};
-
+export const user = { name: 'Adrian'};
 export const dashboardStats = {
     totalUsers: 12450,
-    usersJoined: {currentMonth: 218, lastMonth: 176},
+    usersJoined: { currentMonth: 218, lastMonth: 176 },
     totalTrips: 3210,
-    tripsCreated: {currentMonth: 150, lastMonth: 250},
-    userRole: {total: 62, currentMonth: 25, lastMonth: 15},
+    tripsCreated: { currentMonth: 150, lastMonth: 250},
+    userRole: { total: 62, currentMonth: 25, lastMonth: 15},
 }
-
-export const allTrips =
-    [{
+export const allTrips = [{
     id: 1,
-    name: "Tropical Rewind",
-    imageUrls: ["/assets/images/sample1.jpg"],
-    itinerary: [{location: "Thailand"}],
+    name: "Ancient Ruins",
+    imageUrls: ["/assets/images/card-img-3.png"],
+    itinerary: [{ location: "Greece" }],
     tags: ["Adventure", "Culture"],
     travelStyle: "Solo",
     estimatedPrice: "$1,000",
-    },
+},
     {
         id: 2,
-        name: "French Reverie",
-        imageUrls: ["/assets/images/sample2.jpg"],
-        itinerary: [{location: "Paris"}],
+        name: "Gondola Ride",
+        imageUrls: ["/assets/images/card-img-4.png"],
+        itinerary: [{ location: "Venice" }],
         tags: ["Relaxation", "Culinary"],
         travelStyle: "Family",
         estimatedPrice: "$2,000",
     },
     {
         id: 3,
-        name: "Zen Break",
-        imageUrls: ["/assets/images/sample3.jpg"],
-        itinerary: [{location: "Japan"}],
+        name: "Italy's Hidden Retreat",
+        imageUrls: ["/assets/images/card-img-5.png"],
+        itinerary: [{ location: "Positano" }],
         tags: ["Shopping", "Luxury"],
         travelStyle: "Couple",
         estimatedPrice: "$3,000",
     },
     {
         id: 4,
-        name: "Adventure in Westeros",
-        imageUrls: ["/assets/images/sample4.jpg"],
-        itinerary: [{location: "Croatia"}],
+        name: "Culture Refresh",
+        imageUrls: ["/assets/images/card-img-6.png"],
+        itinerary: [{ location: "Thailand" }],
         tags: ["Historical", "Culture"],
         travelStyle: "Friends",
         estimatedPrice: "$4,000",
     },
 ];
-
 export const users = [
     {
         id: 1,
@@ -220,4 +216,3 @@ export const users = [
         status: "admin",
     },
 ];
-
