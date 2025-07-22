@@ -71,10 +71,8 @@ export const loginWithGoogle = async () => {
             `${window.location.origin}/auth/callback`,
             `${window.location.origin}/sign-in`
         );
-
-
     } catch (error) {
-        console.error("Error during OAuth2 session creation:", error);
+        console.error("OAuth error", error);
     }
 };
 

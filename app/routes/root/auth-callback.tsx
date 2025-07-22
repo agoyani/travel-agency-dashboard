@@ -1,14 +1,22 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { account } from "~/appwrite/client";
 import { storeUserData } from "~/appwrite/auth";
 
 export default function AuthCallback() {
-    const navigate = useNavigate();
-
     useEffect(() => {
         const run = async () => {
-            await storeUserData();
-            navigate("/dashboard");
+            try {
+                const user = await account.get();
+                if (user?.$id) {
+                    await storeUserData();
+                    window.location.href = "/dashboard";
+                } else {
+                    window.location.href = "/sign-in";
+                }
+            } catch (e) {
+                console.error("OAuth failed", e);
+                window.location.href = "/sign-in";
+            }
         };
 
         run();
