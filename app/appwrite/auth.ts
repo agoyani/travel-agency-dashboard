@@ -21,9 +21,6 @@ export const storeUserData = async () => {
         const user = await account.get();
         if (!user) throw new Error("User not found");
 
-        const existingUser = await getExistingUser(user.$id);
-        if (existingUser) return;
-
         const { providerAccessToken } = (await account.getSession("current")) || {};
         const profilePicture = providerAccessToken
             ? await getGooglePicture(providerAccessToken)
@@ -68,11 +65,11 @@ export const loginWithGoogle = async () => {
     try {
         account.createOAuth2Session(
             OAuthProvider.Google,
-            `${window.location.origin}/auth/callback`,
-            `${window.location.origin}/sign-in`
+            `${window.location.origin}/`,
+            `${window.location.origin}/404`
         );
     } catch (error) {
-        console.error("OAuth error", error);
+        console.error("Error during OAuth2 session creation:", error);
     }
 };
 
@@ -107,17 +104,17 @@ export const getUser = async () => {
 
 export const getAllUsers = async (limit: number, offset: number) => {
     try {
-        const { documents: users, total} = await database.listDocuments(
+        const { documents: users, total } = await database.listDocuments(
             appwriteConfig.databaseId,
             appwriteConfig.userCollectionId,
             [Query.limit(limit), Query.offset(offset)]
         )
 
-        if(total === 0) return {users:[], total}
+        if(total === 0) return { users: [], total };
 
-        return {users, total};
+        return { users, total };
     } catch (e) {
-        console.log('Error fetching users', e);
-        return { users: [], total: 0 };
+        console.log('Error fetching users')
+        return { users: [], total: 0 }
     }
 }
